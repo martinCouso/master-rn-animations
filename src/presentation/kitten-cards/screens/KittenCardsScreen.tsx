@@ -11,6 +11,7 @@ import KittenCardsScreenStyles, {
   CARD_WIDTH,
 } from '../styles/KittenCardsScreenStyles';
 import {NavigationProp} from '@react-navigation/native';
+import useReloadScreen from '../../shared/hooks/useReloadScreen';
 
 interface Props {
   navigation: NavigationProp<any>;
@@ -23,21 +24,13 @@ const KittenCardsScreen: React.FC<Props> = ({navigation}) => {
   // References
   const isFirstRender = useRef(true);
 
+  // Hooks
+  const reload = useReloadScreen('KittenCards');
+
   // Animated Values
   const pan = useRef(new Animated.ValueXY()).current;
   const opacity = useRef(new Animated.Value(1)).current;
   const next = useRef(new Animated.Value(0.8)).current;
-
-  const refreshAnimatedValues = () => {
-    navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: 'KittenCards',
-        },
-      ],
-    });
-  };
 
   // Effects
   useLayoutEffect(() => {
@@ -238,7 +231,7 @@ const KittenCardsScreen: React.FC<Props> = ({navigation}) => {
 
         <TouchableOpacity
           onPress={() => {
-            refreshAnimatedValues();
+            reload();
           }}
           style={[KittenCardsScreenStyles.button]}>
           <Text style={KittenCardsScreenStyles.nopeText}>REFRESH</Text>
