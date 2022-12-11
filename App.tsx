@@ -15,15 +15,23 @@ import CornersScreen from './src/presentation/corners/screens/CornersScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import StaggeredHeadsScreen from './src/presentation/staggered-heads/screens/StaggeredHeadsScreen';
 import KittenCardsScreen from './src/presentation/kitten-cards/screens/KittenCardsScreen';
+import StaggerFormItemsScreen from './src/presentation/stagger-form-items/screens/StaggerFormItemsScreen';
+import {RootStack} from './src/presentation/shared/types';
+import ProgressBarScreen from './src/presentation/progress-bar/screens/ProgressBarScreen';
 
 const App = () => {
-  const Drawer = createDrawerNavigator();
+  const Drawer = createDrawerNavigator<RootStack>();
   return (
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Corners" component={CornersScreen} />
         <Drawer.Screen name="StaggerHeads" component={StaggeredHeadsScreen} />
         <Drawer.Screen name="KittenCards" component={KittenCardsScreen} />
+        <Drawer.Screen
+          name="StaggerFormItems"
+          component={StaggerFormItemsScreen}
+        />
+        <Drawer.Screen name="ProgressBar" component={ProgressBarScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
