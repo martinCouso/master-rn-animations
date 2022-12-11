@@ -14,6 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import CornersScreen from './src/presentation/corners/screens/CornersScreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import StaggeredHeadsScreen from './src/presentation/staggered-heads/screens/StaggeredHeadsScreen';
+import KittenCardsScreen from './src/presentation/kitten-cards/screens/KittenCardsScreen';
 
 const App = () => {
   const Drawer = createDrawerNavigator();
@@ -22,6 +23,7 @@ const App = () => {
       <Drawer.Navigator>
         <Drawer.Screen name="Corners" component={CornersScreen} />
         <Drawer.Screen name="StaggerHeads" component={StaggeredHeadsScreen} />
+        <Drawer.Screen name="KittenCards" component={KittenCardsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
