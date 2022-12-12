@@ -14,6 +14,7 @@ interface Props {}
 const QuestionnaireScreen: React.FC<Props> = () => {
   // Local State
   const [index, setIndex] = useState(0);
+
   // Animated Values
   const animation = useRef(new Animated.Value(0)).current;
   const progress = useRef(new Animated.Value(0)).current;
@@ -41,11 +42,19 @@ const QuestionnaireScreen: React.FC<Props> = () => {
   }, [index]);
 
   // Animated Styles
+  /**
+   * Everytime that the user clicks in on the of the
+   * optionButtons we move the next question into the screen from the left
+   */
   const nextQuestionInterpolate = animation.interpolate({
     inputRange: [0, 1],
     outputRange: [width, 0],
   });
 
+  /**
+   * Everytime that the user clicks in on the of the
+   * optionButtons we move the current question out the screen to the left.
+   */
   const mainQuestionInterpolate = animation.interpolate({
     inputRange: [0, 1],
     outputRange: [0, -width],
@@ -77,6 +86,12 @@ const QuestionnaireScreen: React.FC<Props> = () => {
   };
 
   // Handlers
+  /**
+   * Everytime that the user clicks on of the options
+   * 2 animations are fired in parallel, the first one to make the progress
+   * bar at the bottom of the screen to grow and the second one to trigger the
+   * translation of the questions via interpolation.
+   */
   const handleAnswer = () => {
     Animated.parallel([
       Animated.timing(progress, {
