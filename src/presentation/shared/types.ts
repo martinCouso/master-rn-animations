@@ -5,4 +5,5 @@ export type RootStack = {
   StaggerFormItems: {};
   ProgressBar: {};
   Questionnaire: {};
+  TransitionElement: {};
 };

@@ -19,6 +19,7 @@ import StaggerFormItemsScreen from './src/presentation/stagger-form-items/screen
 import {RootStack} from './src/presentation/shared/types';
 import ProgressBarScreen from './src/presentation/progress-bar/screens/ProgressBarScreen';
 import QuestionnaireScreen from './src/presentation/questionnaire/screens/QuestionnaireScreen';
+import TransitionElementScreen from './src/presentation/transition-element/screens/TransitionElementScreen';
 
 const App = () => {
   const Drawer = createDrawerNavigator<RootStack>();
@@ -34,6 +35,10 @@ const App = () => {
         />
         <Drawer.Screen name="ProgressBar" component={ProgressBarScreen} />
         <Drawer.Screen name="Questionnaire" component={QuestionnaireScreen} />
+        <Drawer.Screen
+          name="TransitionElement"
+          component={TransitionElementScreen}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
