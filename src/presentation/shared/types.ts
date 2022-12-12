@@ -4,4 +4,5 @@ export type RootStack = {
   KittenCards: {};
   StaggerFormItems: {};
   ProgressBar: {};
+  Questionnaire: {};
 };

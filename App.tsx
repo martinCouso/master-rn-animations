@@ -18,6 +18,7 @@ import KittenCardsScreen from './src/presentation/kitten-cards/screens/KittenCar
 import StaggerFormItemsScreen from './src/presentation/stagger-form-items/screens/StaggerFormItemsScreen';
 import {RootStack} from './src/presentation/shared/types';
 import ProgressBarScreen from './src/presentation/progress-bar/screens/ProgressBarScreen';
+import QuestionnaireScreen from './src/presentation/questionnaire/screens/QuestionnaireScreen';
 
 const App = () => {
   const Drawer = createDrawerNavigator<RootStack>();
@@ -32,6 +33,7 @@ const App = () => {
           component={StaggerFormItemsScreen}
         />
         <Drawer.Screen name="ProgressBar" component={ProgressBarScreen} />
+        <Drawer.Screen name="Questionnaire" component={QuestionnaireScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
